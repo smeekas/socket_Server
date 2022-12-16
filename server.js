@@ -1,8 +1,5 @@
-const io = require('socket.io')(3000, {
-    cors: {
-        origin: ['http://localhost:8080']
-    }
-})
+const http = require('http').createServer().listen(process.env.PORT || 3000, '0.0.0.0');
+const io = require('socket.io')(http)
 
 io.on('connection', (socket => {
     console.log(socket.id)
